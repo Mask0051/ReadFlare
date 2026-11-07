@@ -10,6 +10,7 @@ import sqlite3
 from contextlib import closing
 from datetime import date
 
+import settings
 from config import DB_PATH
 from database import RUNS_TABLE, CHANGES_TABLE
 
@@ -80,6 +81,14 @@ def what_happened(c):
     return c.get("nature") or c["change_type"]
 
 
+def dashboard_url():
+    # empty unless the dashboard is reachable from where the email is read
+    try:
+        return (settings.get_setting("dashboard_url") or "").strip()
+    except KeyError:
+        return ""
+
+
 def release_label(run):
     return run.get("release_name") or f"edition {run['edition_timestamp']}"
 
@@ -132,6 +141,9 @@ def build_email_summary(run_id):
     if extras:
         lines.append("Also in this update: " + ", ".join(extras) + ".")
     lines.append("Full details are in the attached report.")
+    url = dashboard_url()
+    if url:
+        lines.append(f"View on the dashboard: {url}")
     return subject, "\n".join(lines)
 
 
@@ -274,6 +286,7 @@ def build_report_html(run_id):
 <p class="meta">Processed {_e(run.get("processed_at"))} UTC · {len(changes)} total changes</p>
 <div class="cards">{cards_html}</div>
 <p class="small">How changes were found: {recon}</p>
+{f'<p class="small"><a href="{_e(dashboard_url())}">Open the dashboard</a></p>' if dashboard_url() else ""}
 {_section_html("watchlist", changes)}
 {_section_html("related", changes)}
 {_section_html("others", changes)}

@@ -12,7 +12,8 @@ DEFAULTS = {
     "smtp_user": "",
     "check_interval_minutes": 30,
     "fallback_timestamp": 1791388510,
-    "track_ch99_links": False
+    "track_ch99_links": False,
+    "dashboard_url": ""
     
 }
 
