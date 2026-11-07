@@ -180,3 +180,4 @@ tr.clickable:hover, tr.row-open, tr.row-detail td { background: var(--bg); }
 .settings-form label:not(.check) { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.92rem; }
 .settings-form input[type='number'] { width: 8rem; }
 .add-row input[list] { flex: 0 1 14rem; }
+.redRead{color: red;}

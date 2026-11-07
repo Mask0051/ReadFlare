@@ -8,7 +8,7 @@ export default function NavBar({ page }) {
   return (
     <header className="navbar">
       <a className="brand" href="#/home">
-        CodeREAD
+        Code<span className='redRead'>READ</span>
       </a>
       <nav className="nav-links">
         {PAGES.map((p) => (
