@@ -1,6 +1,6 @@
 # CodeREAD (ReadFlare)
 
-CodeREAD watches the U.S. Harmonized Tariff Schedule (HTS) for new releases and tells you when codes CPSC cares about are affected. When the U.S. International Trade Commission (USITC) publishes a revision, it downloads it, works out what changed, matches the changes against your watchlist, emails a short alert with a full report attached, and shows everything on a local web dashboard.
+ReadFlare watches the U.S. Harmonized Tariff Schedule (HTS) for new releases and tells you when codes CPSC cares about are affected. When the U.S. International Trade Commission (USITC) publishes a revision, it downloads it, works out what changed, matches the changes against your watchlist, emails a short alert with a full report attached, and shows everything on a local web dashboard.
 
 Built for the U.S. Consumer Product Safety Commission (CPSC) as part of GMU's Challenge X.
 
